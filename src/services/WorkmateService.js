@@ -7,9 +7,9 @@ class WorkmateService {
 
    async getUsers() {
     const resultado = await axios.get(this.apiUrl);
+    console.log("resultado: " + resultado);
     return resultado;
   }
-
 
 }
 

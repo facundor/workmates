@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import WorkmateList from "./components/WorkmateList";
 
 function App() {
 
-  const url = `https://hello-ms.k8s.fluxit.com.ar/users`;
+  const url = `http://hello-ms.k8s.fluxit.com.ar/users`;
 
   return (
     <div className="container">

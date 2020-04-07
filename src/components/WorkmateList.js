@@ -1,14 +1,15 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import WorkmateService from "../services/WorkmateService"
 import Workmate from "./Workmate"
 
 function WorkmateList({ url }) {
   const [workmates, setWorkmates] = useState([]);
 
   useEffect(() => {
-    const workmateService = new WorkmateService();
-    const workmateList = workmateService.getUsers(url);
+    const workmateService = new WorkmateService(url);
+    const workmateList = workmateService.getUsers();
 
-    async () => {
+   const list = async () => {
       const value = await workmateList;
       setWorkmates(value);
     };
@@ -17,7 +18,7 @@ function WorkmateList({ url }) {
   return (
     <table>
       {workmates.map( person => (
-              <Workmate workmate={person}/>
+              <Workmate key={person._id} workmate={person}/>
             )) }
     </table>
   );
