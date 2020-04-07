@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import WorkmateService from "../services/WorkmateService";
 import Workmate from "./Workmate";
 
-function WorkmateList({ url }) {
+function WorkmateList() {
   const [workmates, setWorkmates] = useState([]);
 
-  useEffect((url) => {
-    const workmateService = new WorkmateService(url);
+  useEffect(() => {
+    const workmateService = new WorkmateService();
     const usersPromise = workmateService.getUsers();
 
     usersPromise.then((data) => {
