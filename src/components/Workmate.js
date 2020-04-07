@@ -1,11 +1,11 @@
 import React from "react";
 
 function Workmate({ workmate }) {
-  const { name, surname } = workmate;
+ 
   return (
     <tr>
-      <td>{name}</td>
-      <td>{surname}</td>
+      <td className="resultado">{workmate.name}</td>
+      <td className="resultado">{workmate.surname}</td>
     </tr>
   );
 }

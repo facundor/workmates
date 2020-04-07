@@ -1,26 +1,30 @@
-import React,{useState,useEffect} from "react";
-import WorkmateService from "../services/WorkmateService"
-import Workmate from "./Workmate"
+import React, { useState, useEffect } from "react";
+import WorkmateService from "../services/WorkmateService";
+import Workmate from "./Workmate";
 
 function WorkmateList({ url }) {
   const [workmates, setWorkmates] = useState([]);
 
-  useEffect(() => {
+  useEffect((url) => {
     const workmateService = new WorkmateService(url);
-    const workmateList = workmateService.getUsers();
+    const usersPromise = workmateService.getUsers();
 
-   const list = async () => {
-      const value = await workmateList;
-      setWorkmates(value);
-    };
-  });
+    usersPromise.then((data) => {
+      setWorkmates(data.data)
+    }).catch(err => { console.log(err)});
+  }, []);
 
   return (
-    <table>
-      {workmates.map( person => (
-              <Workmate key={person._id} workmate={person}/>
-            )) }
-    </table>
+    <div>
+      <h1>Workmates!</h1>
+      <table>
+        <tbody>
+      {workmates.map((person) => (
+        <Workmate key={person._id} workmate={person} />
+      ))}
+      </tbody>
+      </table>
+    </div>
   );
 }
 

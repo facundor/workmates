@@ -3,7 +3,7 @@ import WorkmateList from "./components/WorkmateList";
 
 function App() {
 
-  const url = `http://hello-ms.k8s.fluxit.com.ar/users`;
+  const url = `http://localhost:4000/users`;
 
   return (
     <div className="container">

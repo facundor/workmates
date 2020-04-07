@@ -6,9 +6,13 @@ class WorkmateService {
   }
 
    async getUsers() {
-    const resultado = await axios.get(this.apiUrl);
-    console.log("resultado: " + resultado);
-    return resultado;
+    try{
+      const result = await axios.get("http://localhost:4000/users");
+      console.log("resultado: " + result);
+      return await result;
+    }catch(error){
+      console.log("error ocurred " + error)
+    }
   }
 
 }
