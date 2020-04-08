@@ -16,9 +16,6 @@ spec:
     spec:
       containers:
       - name: workmates-container
-        image: facundor/workmates:1.0.1
+        image: facundor/workmates:1.0.4
         ports:
         - containerPort: 80
-        env:
-        - name: REACT_APP_USERS_API_URL
-          value: "http://hello-ms.k8s.fluxit.com.ar/users"
