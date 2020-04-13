@@ -12,15 +12,6 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name:
-
 podSecurityContext: {}
   # fsGroup: 2000
 
@@ -43,7 +34,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: workmates.k8s.fluxit.com.ar
-      paths: []
+      paths: [/]
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
